@@ -1,0 +1,17 @@
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Negocio.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Negocio.pdb
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Negocio.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Datos.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Entidades.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Datos.pdb
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Datos.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Entidades.pdb
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\bin\Debug\Sistema.Entidades.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.vbprojAssemblyReference.cache
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.Resources.resources
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.vbproj.GenerateResource.cache
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.vbproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.vbproj.CopyComplete
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Negocio\obj\Debug\Sistema.Negocio.pdb

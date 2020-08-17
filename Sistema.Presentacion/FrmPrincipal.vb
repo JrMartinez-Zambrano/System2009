@@ -85,4 +85,7 @@ Public Class FrmPrincipal
 
     Private m_ChildFormNumber As Integer
 
+    Private Sub ToolStripStatusLabel_Click(sender As Object, e As EventArgs) Handles ToolStripStatusLabel.Click
+
+    End Sub
 End Class

@@ -1,0 +1,14 @@
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\bin\Debug\Sistema.Datos.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\bin\Debug\Sistema.Datos.pdb
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\bin\Debug\Sistema.Datos.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\bin\Debug\Sistema.Entidades.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\bin\Debug\Sistema.Entidades.pdb
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\bin\Debug\Sistema.Entidades.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.vbprojAssemblyReference.cache
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.Resources.resources
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.vbproj.GenerateResource.cache
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.vbproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.vbproj.CopyComplete
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.dll
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.xml
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Datos\obj\Debug\Sistema.Datos.pdb
