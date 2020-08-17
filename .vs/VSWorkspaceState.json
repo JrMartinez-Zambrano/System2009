@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Sistema.Datos",
-    "\\Sistema.Entidades\\obj"
+    "\\Sistema.Presentacion"
   ],
-  "SelectedNode": "\\Sistema.Datos\\Conexion.vb",
   "PreviewInSolutionExplorer": false
 }
