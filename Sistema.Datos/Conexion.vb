@@ -55,9 +55,21 @@ Public Class Conexion
     Public Sub New()
         Me.Base = "dbsistema"
         Me.Servidor = "DESKTOP-MJBMP9K\SQLEXPRESS"
-        Me.Usuario = ""
-        Me.Clave = ""
-        Me.conn = ""
+        Me.Usuario = "Junni"
+        Me.Clave = "contrasena"
+        Me.conn = New SqlConnection(CrearCadena)
 
     End Sub
+
+    Public Function CrearCadena() As String
+        Dim cadena As String
+        cadena = "Server=" & Me.Servidor & "; Database=" & Me.Base & ";"
+        If Me.Seguridad Then
+            cadena = cadena & "Integrated Security= SSPI"
+        Else
+            cadena = cadena & "User Id=" & Me.Usuario & ";Password=" & Me.Clave
+        End If
+        Return cadena
+    End Function
 End Class
+
