@@ -24,10 +24,12 @@ Partial Class FrmCategoria
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnBuscar = New System.Windows.Forms.Button()
+        Me.Lbltotal = New System.Windows.Forms.Label()
         Me.DgvListado = New System.Windows.Forms.DataGridView()
         Me.Seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Lbltotal = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Txtvalor = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +47,8 @@ Partial Class FrmCategoria
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Txtvalor)
+        Me.TabPage1.Controls.Add(Me.BtnBuscar)
         Me.TabPage1.Controls.Add(Me.Lbltotal)
         Me.TabPage1.Controls.Add(Me.DgvListado)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
@@ -55,35 +59,14 @@ Partial Class FrmCategoria
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'BtnBuscar
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(768, 407)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Mantenimiento"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'DgvListado
-        '
-        Me.DgvListado.AllowUserToAddRows = False
-        Me.DgvListado.AllowUserToDeleteRows = False
-        Me.DgvListado.AllowUserToOrderColumns = True
-        Me.DgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvListado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seleccionar})
-        Me.DgvListado.Location = New System.Drawing.Point(16, 60)
-        Me.DgvListado.Name = "DgvListado"
-        Me.DgvListado.ReadOnly = True
-        Me.DgvListado.RowTemplate.Height = 24
-        Me.DgvListado.Size = New System.Drawing.Size(1090, 462)
-        Me.DgvListado.TabIndex = 0
-        '
-        'Seleccionar
-        '
-        Me.Seleccionar.HeaderText = "Seleccionar"
-        Me.Seleccionar.Name = "Seleccionar"
-        Me.Seleccionar.ReadOnly = True
+        Me.BtnBuscar.Location = New System.Drawing.Point(547, 17)
+        Me.BtnBuscar.Name = "BtnBuscar"
+        Me.BtnBuscar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBuscar.TabIndex = 3
+        Me.BtnBuscar.Text = "Buscar"
+        Me.BtnBuscar.UseVisualStyleBackColor = True
         '
         'Lbltotal
         '
@@ -94,6 +77,44 @@ Partial Class FrmCategoria
         Me.Lbltotal.TabIndex = 1
         Me.Lbltotal.Text = "Total"
         '
+        'DgvListado
+        '
+        Me.DgvListado.AllowUserToAddRows = False
+        Me.DgvListado.AllowUserToDeleteRows = False
+        Me.DgvListado.AllowUserToOrderColumns = True
+        Me.DgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvListado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seleccionar})
+        Me.DgvListado.Location = New System.Drawing.Point(38, 57)
+        Me.DgvListado.Name = "DgvListado"
+        Me.DgvListado.ReadOnly = True
+        Me.DgvListado.RowTemplate.Height = 24
+        Me.DgvListado.Size = New System.Drawing.Size(1050, 462)
+        Me.DgvListado.TabIndex = 0
+        '
+        'Seleccionar
+        '
+        Me.Seleccionar.HeaderText = "Seleccionar"
+        Me.Seleccionar.Name = "Seleccionar"
+        Me.Seleccionar.ReadOnly = True
+        Me.Seleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1112, 551)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Mantenimiento"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Txtvalor
+        '
+        Me.Txtvalor.Location = New System.Drawing.Point(38, 17)
+        Me.Txtvalor.Name = "Txtvalor"
+        Me.Txtvalor.Size = New System.Drawing.Size(503, 22)
+        Me.Txtvalor.TabIndex = 4
+        '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -102,6 +123,7 @@ Partial Class FrmCategoria
         Me.ClientSize = New System.Drawing.Size(1144, 604)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "FrmCategoria"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Categorias"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -114,7 +136,9 @@ Partial Class FrmCategoria
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents DgvListado As DataGridView
-    Friend WithEvents Seleccionar As DataGridViewCheckBoxColumn
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Lbltotal As Label
+    Friend WithEvents Seleccionar As DataGridViewCheckBoxColumn
+    Friend WithEvents BtnBuscar As Button
+    Friend WithEvents Txtvalor As TextBox
 End Class
