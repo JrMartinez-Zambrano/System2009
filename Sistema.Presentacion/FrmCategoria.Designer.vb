@@ -39,6 +39,7 @@ Partial Class FrmCategoria
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ErrorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.TabGeneral.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,6 +107,7 @@ Partial Class FrmCategoria
         Me.DgvListado.Name = "DgvListado"
         Me.DgvListado.ReadOnly = True
         Me.DgvListado.RowTemplate.Height = 24
+        Me.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvListado.Size = New System.Drawing.Size(1050, 462)
         Me.DgvListado.TabIndex = 0
         '
@@ -118,6 +120,7 @@ Partial Class FrmCategoria
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.BtnActualizar)
         Me.TabPage2.Controls.Add(Me.TxtId)
         Me.TabPage2.Controls.Add(Me.BtnCancelar)
         Me.TabPage2.Controls.Add(Me.BtnInsertar)
@@ -196,6 +199,15 @@ Partial Class FrmCategoria
         '
         Me.ErrorIcono.ContainerControl = Me
         '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Location = New System.Drawing.Point(454, 313)
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.Size = New System.Drawing.Size(119, 25)
+        Me.BtnActualizar.TabIndex = 7
+        Me.BtnActualizar.Text = "Actualizar"
+        Me.BtnActualizar.UseVisualStyleBackColor = True
+        '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -209,7 +221,7 @@ Partial Class FrmCategoria
         Me.MinimizeBox = False
         Me.Name = "FrmCategoria"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Categorias"
+        Me.Text = "Categorías"
         Me.TabGeneral.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -237,4 +249,5 @@ Partial Class FrmCategoria
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ErrorIcono As ErrorProvider
+    Friend WithEvents BtnActualizar As Button
 End Class

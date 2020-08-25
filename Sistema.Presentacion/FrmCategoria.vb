@@ -19,6 +19,7 @@
             DgvListado.DataSource = Neg.Listar()
             Lbltotal.Text = "Total Registros: " & DgvListado.DataSource.Rows.Count
             Me.Formato()
+            Me.Limpiar()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -41,6 +42,7 @@
     'Método limpiar'
     Private Sub Limpiar()
         BtnInsertar.Visible = True
+        BtnActualizar.Visible = False
         Txtvalor.Text = ""
         TxtId.Text = ""
         TxtNombre.Text = ""
@@ -66,7 +68,6 @@
 
             If (Neg.Insertar(Obj)) Then
                 MsgBox("Se ha registrado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
-                Me.Limpiar()
                 Me.Listar()
             Else
                 MsgBox("No se ha podido registrar", vbOKOnly + vbCritical, "Proceso fallido")
@@ -87,7 +88,38 @@
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.ErrorIcono.SetError(sender, "")
         Else
-            Me.ErrorIcono.SetError(sender, "Ingrese el nombre de la categoría por favor, este dato es obligatorio3")
+            Me.ErrorIcono.SetError(sender, "Ingrese el nombre de la categoría por favor, este dato es obligatorio")
+        End If
+    End Sub
+
+    Private Sub DgvListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellDoubleClick
+        TxtId.Text = DgvListado.SelectedCells.Item(1).Value
+        TxtNombre.Text = DgvListado.SelectedCells.Item(2).Value
+        TxtDescripcion.Text = DgvListado.SelectedCells.Item(3).Value
+        BtnInsertar.Visible = False
+        BtnActualizar.Visible = True
+        TabGeneral.SelectedIndex = 1
+    End Sub
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        If Me.ValidateChildren = True And TxtNombre.Text <> "" And TxtId.Text <> "" Then
+            Dim Obj As New Entidades.Categoria
+            Dim Neg As New Negocio.NCategoria
+
+            Obj.IdCategoria = TxtId.Text
+            Obj.Nombre = TxtNombre.Text
+            Obj.Descripcion = TxtDescripcion.Text
+
+            If (Neg.Actualizar(Obj)) Then
+                MsgBox("Se ha actualizado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                Me.Listar()
+                TabGeneral.SelectedIndex = 0
+            Else
+                MsgBox("No se ha podido actualizar", vbOKOnly + vbCritical, "Proceso fallido")
+            End If
+
+        Else
+            MsgBox("Rellene todos los campos obligatorios (*)", vbOKOnly + vbCritical, "¡Advertencia!")
         End If
     End Sub
 End Class
