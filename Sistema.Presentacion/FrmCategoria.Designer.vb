@@ -25,12 +25,17 @@ Partial Class FrmCategoria
         Me.components = New System.ComponentModel.Container()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BtnDesactivar = New System.Windows.Forms.Button()
+        Me.BtnActivar = New System.Windows.Forms.Button()
+        Me.BtnEliminar = New System.Windows.Forms.Button()
+        Me.ChkSeleccionar = New System.Windows.Forms.CheckBox()
         Me.Txtvalor = New System.Windows.Forms.TextBox()
         Me.BtnBuscar = New System.Windows.Forms.Button()
         Me.Lbltotal = New System.Windows.Forms.Label()
         Me.DgvListado = New System.Windows.Forms.DataGridView()
         Me.Seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.TxtId = New System.Windows.Forms.TextBox()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnInsertar = New System.Windows.Forms.Button()
@@ -39,7 +44,6 @@ Partial Class FrmCategoria
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ErrorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.TabGeneral.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,11 +58,15 @@ Partial Class FrmCategoria
         Me.TabGeneral.Location = New System.Drawing.Point(12, 12)
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(1120, 580)
+        Me.TabGeneral.Size = New System.Drawing.Size(1120, 601)
         Me.TabGeneral.TabIndex = 0
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.BtnDesactivar)
+        Me.TabPage1.Controls.Add(Me.BtnActivar)
+        Me.TabPage1.Controls.Add(Me.BtnEliminar)
+        Me.TabPage1.Controls.Add(Me.ChkSeleccionar)
         Me.TabPage1.Controls.Add(Me.Txtvalor)
         Me.TabPage1.Controls.Add(Me.BtnBuscar)
         Me.TabPage1.Controls.Add(Me.Lbltotal)
@@ -66,10 +74,47 @@ Partial Class FrmCategoria
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1112, 551)
+        Me.TabPage1.Size = New System.Drawing.Size(1112, 572)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'BtnDesactivar
+        '
+        Me.BtnDesactivar.Location = New System.Drawing.Point(661, 530)
+        Me.BtnDesactivar.Name = "BtnDesactivar"
+        Me.BtnDesactivar.Size = New System.Drawing.Size(167, 24)
+        Me.BtnDesactivar.TabIndex = 8
+        Me.BtnDesactivar.Text = "Desactivar"
+        Me.BtnDesactivar.UseVisualStyleBackColor = True
+        '
+        'BtnActivar
+        '
+        Me.BtnActivar.Location = New System.Drawing.Point(459, 530)
+        Me.BtnActivar.Name = "BtnActivar"
+        Me.BtnActivar.Size = New System.Drawing.Size(167, 24)
+        Me.BtnActivar.TabIndex = 7
+        Me.BtnActivar.Text = "Activar"
+        Me.BtnActivar.UseVisualStyleBackColor = True
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Location = New System.Drawing.Point(258, 531)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(167, 24)
+        Me.BtnEliminar.TabIndex = 6
+        Me.BtnEliminar.Text = "Eliminar"
+        Me.BtnEliminar.UseVisualStyleBackColor = True
+        '
+        'ChkSeleccionar
+        '
+        Me.ChkSeleccionar.AutoSize = True
+        Me.ChkSeleccionar.Location = New System.Drawing.Point(38, 534)
+        Me.ChkSeleccionar.Name = "ChkSeleccionar"
+        Me.ChkSeleccionar.Size = New System.Drawing.Size(104, 21)
+        Me.ChkSeleccionar.TabIndex = 5
+        Me.ChkSeleccionar.Text = "Seleccionar"
+        Me.ChkSeleccionar.UseVisualStyleBackColor = True
         '
         'Txtvalor
         '
@@ -131,10 +176,19 @@ Partial Class FrmCategoria
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1112, 551)
+        Me.TabPage2.Size = New System.Drawing.Size(1112, 572)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Mantenimiento"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Location = New System.Drawing.Point(454, 313)
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.Size = New System.Drawing.Size(119, 25)
+        Me.BtnActualizar.TabIndex = 7
+        Me.BtnActualizar.Text = "Actualizar"
+        Me.BtnActualizar.UseVisualStyleBackColor = True
         '
         'TxtId
         '
@@ -199,21 +253,12 @@ Partial Class FrmCategoria
         '
         Me.ErrorIcono.ContainerControl = Me
         '
-        'BtnActualizar
-        '
-        Me.BtnActualizar.Location = New System.Drawing.Point(454, 313)
-        Me.BtnActualizar.Name = "BtnActualizar"
-        Me.BtnActualizar.Size = New System.Drawing.Size(119, 25)
-        Me.BtnActualizar.TabIndex = 7
-        Me.BtnActualizar.Text = "Actualizar"
-        Me.BtnActualizar.UseVisualStyleBackColor = True
-        '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(1144, 604)
+        Me.ClientSize = New System.Drawing.Size(1146, 625)
         Me.Controls.Add(Me.TabGeneral)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -250,4 +295,8 @@ Partial Class FrmCategoria
     Friend WithEvents Label1 As Label
     Friend WithEvents ErrorIcono As ErrorProvider
     Friend WithEvents BtnActualizar As Button
+    Friend WithEvents BtnDesactivar As Button
+    Friend WithEvents BtnActivar As Button
+    Friend WithEvents BtnEliminar As Button
+    Friend WithEvents ChkSeleccionar As CheckBox
 End Class

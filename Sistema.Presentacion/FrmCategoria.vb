@@ -10,6 +10,13 @@
         DgvListado.Columns(2).Width = 150
         DgvListado.Columns(3).Width = 400
         DgvListado.Columns(4).Width = 100
+
+        DgvListado.Columns.Item("Seleccionar").Visible = False
+        BtnEliminar.Visible = False
+        BtnInsertar.Visible = False
+        BtnActivar.Visible = False
+        BtnDesactivar.Visible = False
+        ChkSeleccionar.CheckState = False
     End Sub
 
     'Método de listar'
@@ -98,6 +105,7 @@
         TxtDescripcion.Text = DgvListado.SelectedCells.Item(3).Value
         BtnInsertar.Visible = False
         BtnActualizar.Visible = True
+        BtnActivar.Visible = False
         TabGeneral.SelectedIndex = 1
     End Sub
 
@@ -120,6 +128,47 @@
 
         Else
             MsgBox("Rellene todos los campos obligatorios (*)", vbOKOnly + vbCritical, "¡Advertencia!")
+        End If
+    End Sub
+
+    Private Sub ChkSeleccionar_CheckedChanged(sender As Object, e As EventArgs) Handles ChkSeleccionar.CheckedChanged
+        If ChkSeleccionar.CheckState = CheckState.Checked Then
+            DgvListado.Columns.Item("Seleccionar").Visible = True
+            BtnEliminar.Visible = True
+            BtnInsertar.Visible = True
+            BtnActivar.Visible = True
+            BtnDesactivar.Visible = True
+        Else
+            DgvListado.Columns.Item("Seleccionar").Visible = False
+            BtnEliminar.Visible = False
+            BtnInsertar.Visible = False
+            BtnDesactivar.Visible = False
+        End If
+    End Sub
+
+    Private Sub DgvListado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellContentClick
+        If e.ColumnIndex = DgvListado.Columns.Item("Seleccionar").Index Then
+            Dim chkcell As DataGridViewCheckBoxCell = DgvListado.Rows(e.RowIndex).Cells("Seleccionar")
+            chkcell.Value = Not chkcell.Value
+        End If
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+        If (MsgBox("¿Estás seguro de eliminar los registros seleccionados", vbYesNo + vbQuestion, "Eliminar registro") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NCategoria
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Eliminar(oneKey)
+                    End If
+                Next
+                MsgBox("Se ha eliminado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
         End If
     End Sub
 End Class
