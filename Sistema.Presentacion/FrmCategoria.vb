@@ -154,7 +154,7 @@
     End Sub
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-        If (MsgBox("¿Estás seguro de eliminar los registros seleccionados", vbYesNo + vbQuestion, "Eliminar registro") = vbYes) Then
+        If (MsgBox("¿Está seguro que desea eliminar los registros seleccionados?", vbYesNo + vbQuestion, "Eliminar registros") = vbYes) Then
             Try
                 Dim Neg As New Negocio.NCategoria
                 For Each row As DataGridViewRow In DgvListado.Rows
@@ -165,6 +165,42 @@
                     End If
                 Next
                 MsgBox("Se ha eliminado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub BtnActivar_Click(sender As Object, e As EventArgs) Handles BtnActivar.Click
+        If (MsgBox("¿Está seguro que desea activar los registros seleccionados?", vbYesNo + vbQuestion, "Activar registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NCategoria
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Activar(oneKey)
+                    End If
+                Next
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub BtnDesactivar_Click(sender As Object, e As EventArgs) Handles BtnDesactivar.Click
+        If (MsgBox("¿Está seguro que desea desactivar los registros seleccionados?", vbYesNo + vbQuestion, "Desactivar registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NCategoria
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Desactivar(oneKey)
+                    End If
+                Next
                 Me.Listar()
             Catch ex As Exception
                 MsgBox(ex.Message)
