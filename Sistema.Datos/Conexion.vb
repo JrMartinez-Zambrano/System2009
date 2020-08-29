@@ -73,3 +73,12 @@ Public Class Conexion
     End Function
 End Class
 
+
+'Imports System.Data.SqlClient
+'Public Class Conexion
+'   Public conn As SqlConnection
+'   Public Sub New()
+'       Me.conn = New SqlConnection("Data Source = DESKTOP-MJBMP9K\SQLEXPRESS; Initial Catalog=dbsistema; User ID = junni; Password = contrasena")
+'   End Sub
+'End Class
+
