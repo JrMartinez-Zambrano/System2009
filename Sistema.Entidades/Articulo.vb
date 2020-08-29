@@ -6,6 +6,7 @@
     Private _Nombre As String
     Private _PrecioVenta As Decimal
     Private _Stock As Integer
+    'La imagen será almacenda en una ruta definida'
     Private _Imagen As String
     Private _Descripcion As String
     Private _Estado As Boolean
