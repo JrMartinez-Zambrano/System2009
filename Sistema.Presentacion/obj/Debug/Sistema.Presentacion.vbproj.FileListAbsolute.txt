@@ -21,3 +21,4 @@ C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Presentacion\obj\De
 C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Presentacion\obj\Debug\Sistema.Presentacion.xml
 C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Presentacion\obj\Debug\Sistema.Presentacion.pdb
 C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Presentacion\obj\Debug\Sistema.Presentacion.FrmCategoria.resources
+C:\Users\USER\Desktop\Udemy Project\Proyecto\Sistema\Sistema.Presentacion\obj\Debug\Sistema.Presentacion.FrmArticulo.resources

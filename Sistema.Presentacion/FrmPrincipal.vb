@@ -98,4 +98,10 @@ Public Class FrmPrincipal
         frm.MdiParent = Me
         frm.Show()
     End Sub
+
+    Private Sub ArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArtículosToolStripMenuItem.Click
+        Dim frm As New FrmArticulo
+        frm.MdiParent = Me
+        frm.Show()
+    End Sub
 End Class
