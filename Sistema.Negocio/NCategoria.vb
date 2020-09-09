@@ -27,6 +27,18 @@ Public Class NCategoria
         End Try
     End Function
 
+    Public Function Seleccionar() As DataTable
+        Try
+            Dim Datos As New DCategoria
+            Dim Tabla As New DataTable
+            Tabla = Datos.Seleccionar()
+            Return Tabla
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
     Public Function Insertar(Obj As Categoria) As Boolean
         Try
             Dim Datos As New Dcategoria
