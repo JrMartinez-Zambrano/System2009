@@ -38,6 +38,22 @@ Public Class DCategoria
         End Try
     End Function
 
+    Public Function Seleccionar() As DataTable
+        Try
+            Dim Resultado As SqlDataReader
+            Dim Tabla As New DataTable
+            Dim Comando As New SqlCommand("categoria_seleccionar", MyBase.conn)
+            Comando.CommandType = CommandType.StoredProcedure
+            MyBase.conn.Open()
+            Resultado = Comando.ExecuteReader()
+            Tabla.Load(Resultado)
+            MyBase.conn.Close()
+            Return Tabla
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
     Public Sub Insertar(Obj As Categoria)
         Try
             Dim Comando As New SqlCommand("categoria_insertar", MyBase.conn)
