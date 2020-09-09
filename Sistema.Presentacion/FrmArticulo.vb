@@ -61,8 +61,20 @@
         TxtDescripcion.Text = ""
     End Sub
 
+    Private Sub CargarCategoria()
+        Try
+            Dim Neg As New Negocio.NCategoria
+            CboCategoria.DataSource = Neg.Seleccionar
+            CboCategoria.ValueMember = "idcategoria"
+            CboCategoria.DisplayMember = "nombre"
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Private Sub FrmArticulo_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Listar()
+        Me.CargarCategoria()
     End Sub
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs)

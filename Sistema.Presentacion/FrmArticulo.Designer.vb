@@ -45,6 +45,8 @@ Partial Class FrmArticulo
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DgvListado = New System.Windows.Forms.DataGridView()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CboCategoria = New System.Windows.Forms.ComboBox()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -122,6 +124,8 @@ Partial Class FrmArticulo
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.CboCategoria)
+        Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.BtnActualizar)
         Me.TabPage2.Controls.Add(Me.TxtId)
         Me.TabPage2.Controls.Add(Me.BtnCancelar)
@@ -259,6 +263,23 @@ Partial Class FrmArticulo
         Me.TabGeneral.Size = New System.Drawing.Size(1560, 601)
         Me.TabGeneral.TabIndex = 1
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(334, 78)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(88, 17)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Categoría (*)"
+        '
+        'CboCategoria
+        '
+        Me.CboCategoria.FormattingEnabled = True
+        Me.CboCategoria.Location = New System.Drawing.Point(468, 78)
+        Me.CboCategoria.Name = "CboCategoria"
+        Me.CboCategoria.Size = New System.Drawing.Size(255, 24)
+        Me.CboCategoria.TabIndex = 9
+        '
         'FrmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -302,4 +323,6 @@ Partial Class FrmArticulo
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents CboCategoria As ComboBox
+    Friend WithEvents Label3 As Label
 End Class
