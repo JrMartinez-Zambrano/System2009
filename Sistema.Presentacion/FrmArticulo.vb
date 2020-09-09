@@ -1,4 +1,8 @@
 ﻿Public Class FrmArticulo
+    'Variables para almacenar la imagen del artículo'
+    Private RutaOrigen As String
+    Private RutaDestino As String
+    Private Directorio As String = "D:\sistema\"
 
     Private Sub Formato()
         'La columna con el check estará deshabilitada al inicio'
@@ -81,4 +85,14 @@
         Me.Buscar()
     End Sub
 
+    Private Sub BtnCargarImagen_Click(sender As Object, e As EventArgs) Handles btnCargarImagen.Click
+        Dim file As New OpenFileDialog()
+        file.Filter = "Image Files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
+        If file.ShowDialog() = DialogResult.OK Then
+            PicImagen.Image = Image.FromFile(file.FileName)
+            RutaOrigen = file.FileName
+            txtImagen.Text = file.FileName.Substring(file.FileName.LastIndexOf("\") + 1)
+        End If
+
+    End Sub
 End Class

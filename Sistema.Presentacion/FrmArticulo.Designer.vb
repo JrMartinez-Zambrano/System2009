@@ -47,12 +47,17 @@ Partial Class FrmArticulo
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CboCategoria = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtImagen = New System.Windows.Forms.TextBox()
+        Me.btnCargarImagen = New System.Windows.Forms.Button()
+        Me.PicImagen = New System.Windows.Forms.PictureBox()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabGeneral.SuspendLayout()
+        CType(Me.PicImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ErrorIcono
@@ -124,6 +129,10 @@ Partial Class FrmArticulo
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.PicImagen)
+        Me.TabPage2.Controls.Add(Me.btnCargarImagen)
+        Me.TabPage2.Controls.Add(Me.txtImagen)
+        Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.CboCategoria)
         Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.BtnActualizar)
@@ -280,6 +289,41 @@ Partial Class FrmArticulo
         Me.CboCategoria.Size = New System.Drawing.Size(255, 24)
         Me.CboCategoria.TabIndex = 9
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(807, 78)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(58, 17)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Imagen "
+        '
+        'txtImagen
+        '
+        Me.txtImagen.Enabled = False
+        Me.txtImagen.Location = New System.Drawing.Point(881, 72)
+        Me.txtImagen.Name = "txtImagen"
+        Me.txtImagen.Size = New System.Drawing.Size(309, 22)
+        Me.txtImagen.TabIndex = 11
+        '
+        'btnCargarImagen
+        '
+        Me.btnCargarImagen.Location = New System.Drawing.Point(1196, 72)
+        Me.btnCargarImagen.Name = "btnCargarImagen"
+        Me.btnCargarImagen.Size = New System.Drawing.Size(53, 23)
+        Me.btnCargarImagen.TabIndex = 12
+        Me.btnCargarImagen.Text = "..."
+        Me.btnCargarImagen.UseVisualStyleBackColor = True
+        '
+        'PicImagen
+        '
+        Me.PicImagen.Location = New System.Drawing.Point(881, 125)
+        Me.PicImagen.Name = "PicImagen"
+        Me.PicImagen.Size = New System.Drawing.Size(368, 231)
+        Me.PicImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PicImagen.TabIndex = 13
+        Me.PicImagen.TabStop = False
+        '
         'FrmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -297,6 +341,7 @@ Partial Class FrmArticulo
         Me.TabPage1.PerformLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabGeneral.ResumeLayout(False)
+        CType(Me.PicImagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -325,4 +370,8 @@ Partial Class FrmArticulo
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents CboCategoria As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents PicImagen As PictureBox
+    Friend WithEvents btnCargarImagen As Button
+    Friend WithEvents txtImagen As TextBox
+    Friend WithEvents Label4 As Label
 End Class
