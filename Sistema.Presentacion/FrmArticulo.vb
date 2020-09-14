@@ -1,13 +1,14 @@
-﻿Public Class FrmArticulo
+﻿Imports System.IO
+Public Class FrmArticulo
     'Variables para almacenar la imagen del artículo'
     Private RutaOrigen As String
     Private RutaDestino As String
-    Private Directorio As String = "D:\sistema\"
+    Private Directorio As String = "C:\sistema\"
 
     Private Sub Formato()
         'La columna con el check estará deshabilitada al inicio'
         DgvListado.Columns(0).Visible = False
-        DgvListado.Columns(2).Width = False
+        DgvListado.Columns(2).Visible = False
         DgvListado.Columns(0).Width = 100
         DgvListado.Columns(1).Width = 100
         DgvListado.Columns(3).Width = 100
@@ -63,6 +64,11 @@
         TxtId.Text = ""
         TxtNombre.Text = ""
         TxtDescripcion.Text = ""
+        TxtCodigo.Text = ""
+        TxtPrecioVenta.Text = ""
+        TxtStock.Text = ""
+        txtImagen.Text = ""
+        PicImagen.Image = Nothing
     End Sub
 
     Private Sub CargarCategoria()
@@ -94,5 +100,45 @@
             txtImagen.Text = file.FileName.Substring(file.FileName.LastIndexOf("\") + 1)
         End If
 
+    End Sub
+
+    Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
+        Try
+            If Me.ValidateChildren = True And CboCategoria.Text <> "" And TxtNombre.Text <> "" And TxtPrecioVenta.Text <> "" And TxtStock.Text <> "" Then
+                Dim Obj As New Entidades.Articulo
+                Dim Neg As New Negocio.NArticulo
+
+                Obj.IdCategoria = CboCategoria.SelectedValue
+                Obj.Codigo = TxtCodigo.Text
+                Obj.Nombre = TxtNombre.Text
+                Obj.PrecioVenta = TxtPrecioVenta.Text
+                Obj.Stock = TxtStock.Text
+                Obj.Imagen = txtImagen.Text
+                Obj.Descripcion = TxtDescripcion.Text
+
+                If (Neg.Insertar(Obj)) Then
+                    MsgBox("Se ha registrado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                    If (txtImagen.Text <> "") Then
+                        RutaDestino = Directorio & txtImagen.Text
+                        File.Copy(RutaOrigen, RutaDestino)
+                    End If
+
+                    Me.Listar()
+                Else
+                    MsgBox("No se ha podido registrar", vbOKOnly + vbCritical, "Proceso fallido")
+                End If
+
+            Else
+                MsgBox("Rellene todos los campos obligatorios (*)", vbOKOnly + vbCritical, "¡Advertencia!")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        Me.Limpiar()
+        TabGeneral.SelectedIndex = 0
     End Sub
 End Class
