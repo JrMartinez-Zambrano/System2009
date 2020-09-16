@@ -69,6 +69,7 @@ Public Class FrmArticulo
         TxtStock.Text = ""
         txtImagen.Text = ""
         PicImagen.Image = Nothing
+        RutaOrigen = ""
     End Sub
 
     Private Sub CargarCategoria()
@@ -140,5 +141,110 @@ Public Class FrmArticulo
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Me.Limpiar()
         TabGeneral.SelectedIndex = 0
+    End Sub
+
+    Private Sub DgvListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellDoubleClick
+        Try
+            TxtId.Text = DgvListado.SelectedCells.Item(1).Value
+            CboCategoria.SelectedValue = DgvListado.SelectedCells.Item(2).Value
+            TxtCodigo.Text = DgvListado.SelectedCells.Item(4).Value
+            TxtNombre.Text = DgvListado.SelectedCells.Item(5).Value
+            TxtPrecioVenta.Text = DgvListado.SelectedCells.Item(6).Value
+            TxtStock.Text = DgvListado.SelectedCells.Item(7).Value
+            TxtDescripcion.Text = DgvListado.SelectedCells.Item(8).Value
+            Dim Imagen As String
+            Imagen = DgvListado.SelectedCells.Item(9).Value
+            If (Imagen <> "") Then
+                PicImagen.Image = Image.FromFile(Directorio & Imagen)
+                txtImagen.Text = Imagen
+            End If
+            BtnInsertar.Visible = False
+            BtnActualizar.Visible = True
+            TabGeneral.SelectedIndex = 1
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        Try
+            If Me.ValidateChildren = True And CboCategoria.Text <> "" And TxtNombre.Text <> "" And TxtPrecioVenta.Text <> "" And TxtStock.Text <> "" And TxtId.Text <> "" Then
+                Dim Obj As New Entidades.Articulo
+                Dim Neg As New Negocio.NArticulo
+
+                Obj.IdArticulo = TxtId.Text
+                Obj.IdCategoria = CboCategoria.SelectedValue
+                Obj.Codigo = TxtCodigo.Text
+                Obj.Nombre = TxtNombre.Text
+                Obj.PrecioVenta = TxtPrecioVenta.Text
+                Obj.Stock = TxtStock.Text
+                Obj.Imagen = txtImagen.Text
+                Obj.Descripcion = TxtDescripcion.Text
+
+                If (Neg.Actualizar(Obj)) Then
+                    MsgBox("Se ha actualizado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                    If (txtImagen.Text <> "" And RutaOrigen <> "") Then
+                        RutaDestino = Directorio & txtImagen.Text
+                        File.Copy(RutaOrigen, RutaDestino)
+                    End If
+
+                    Me.Listar()
+                Else
+                    MsgBox("No se ha podido actualizar", vbOKOnly + vbCritical, "Proceso fallido")
+                End If
+
+            Else
+                MsgBox("Rellene todos los campos obligatorios (*)", vbOKOnly + vbCritical, "¡Advertencia!")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub BtnBuscar_Click_1(sender As Object, e As EventArgs) Handles BtnBuscar.Click
+
+    End Sub
+
+    Private Sub DgvListado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellContentClick
+        If e.ColumnIndex = DgvListado.Columns.Item("Seleccionar").Index Then
+            Dim chkcell As DataGridViewCheckBoxCell = DgvListado.Rows(e.RowIndex).Cells("Seleccionar")
+            chkcell.Value = Not chkcell.Value
+        End If
+    End Sub
+
+    Private Sub ChkSeleccionar_CheckedChanged(sender As Object, e As EventArgs) Handles ChkSeleccionar.CheckedChanged
+        If ChkSeleccionar.CheckState = CheckState.Checked Then
+            DgvListado.Columns.Item("Seleccionar").Visible = True
+            BtnEliminar.Visible = True
+            BtnInsertar.Visible = True
+            BtnActivar.Visible = True
+            BtnDesactivar.Visible = True
+        Else
+            DgvListado.Columns.Item("Seleccionar").Visible = False
+            BtnEliminar.Visible = False
+            BtnInsertar.Visible = False
+            BtnDesactivar.Visible = False
+        End If
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+        If (MsgBox("¿Está seguro que desea eliminar los registros seleccionados?", vbYesNo + vbQuestion, "Eliminar registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NArticulo
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Dim Imagen As String = Convert.ToInt32(row.Cells("Imagen").Value)
+                        Neg.Eliminar(oneKey)
+                        File.Delete(Directorio & Imagen)
+                    End If
+                Next
+                MsgBox("Se ha eliminado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 End Class
