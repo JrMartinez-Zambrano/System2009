@@ -202,7 +202,7 @@ Public Class FrmArticulo
     End Sub
 
     Private Sub BtnBuscar_Click_1(sender As Object, e As EventArgs) Handles BtnBuscar.Click
-
+        Me.Buscar()
     End Sub
 
     Private Sub DgvListado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellContentClick
@@ -235,9 +235,47 @@ Public Class FrmArticulo
                     Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
                     If marcado Then
                         Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
-                        Dim Imagen As String = Convert.ToInt32(row.Cells("Imagen").Value)
+                        Dim Imagen As String = Convert.ToString(row.Cells("Imagen").Value)
                         Neg.Eliminar(oneKey)
                         File.Delete(Directorio & Imagen)
+                    End If
+                Next
+                MsgBox("Se ha eliminado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub BtnActivar_Click(sender As Object, e As EventArgs) Handles BtnActivar.Click
+        If (MsgBox("¿Está seguro que desea activar los registros seleccionados?", vbYesNo + vbQuestion, "Eliminar registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NArticulo
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Activar(oneKey)
+                    End If
+                Next
+                MsgBox("Se ha eliminado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub BtnDesactivar_Click(sender As Object, e As EventArgs) Handles BtnDesactivar.Click
+        If (MsgBox("¿Está seguro que desea desactivar los registros seleccionados?", vbYesNo + vbQuestion, "Eliminar registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NArticulo
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim oneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Desactivar(oneKey)
                     End If
                 Next
                 MsgBox("Se ha eliminado correctamente", vbOKOnly + vbInformation, "Proceso exitoso")
